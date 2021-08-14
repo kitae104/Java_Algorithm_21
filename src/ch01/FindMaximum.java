@@ -20,6 +20,14 @@ public class FindMaximum {
 
 	}
 
+	/**
+	 * <pre>
+	 * 1. 개요 : 최대값을 찾는 메소드 
+	 * 2. 처리내용 : 
+	 * </pre>
+	 * @param arr
+	 * @return
+	 */
 	private static int findMaximum(int[] arr) {
 		
 		int max = arr[0];		// 최대값을 첫 번째 요소로  정한다
