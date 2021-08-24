@@ -2,6 +2,15 @@ package ch07;
 
 import java.util.Scanner;
 
+/**
+ * <pre>
+ * 거스름돈 주기(탐욕기법)
+ * </pre>
+ *	
+ * @author	: 김기태
+ * @Date  	: 2021. 8. 25.
+ * @Version	:
+ */
 public class CoinChange
 {
 	/**
