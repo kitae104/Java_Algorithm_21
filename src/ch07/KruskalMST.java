@@ -1,5 +1,6 @@
 package ch07;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -14,25 +15,25 @@ import java.util.Scanner;
  */
 public class KruskalMST
 {
-	int V;	// 정점들의 수
-    int E; 	// 간선들의 수
-    Edge edge[]; // 모든 간선들의 배열
+	int vertexCnt;			// 정점들의 수
+    int edgeCnt; 			// 간선들의 수
+    Edge edgeArr[]; 			// 모든 간선들의 배열
 	
 	/**
+	 * 생성자 <br>
 	 * V 개의 정점들과 E 개의 간선들을 가진 그래프를 생성 
-	 * 생성자
 	 * @param v
 	 * @param e
 	 */
 	public KruskalMST(int v, int e)
 	{
-		V = v;
-        E = e;
-        edge = new Edge[E];
+		vertexCnt = v;
+        edgeCnt = e;
+        edgeArr = new Edge[edgeCnt];
 
-        for (int i = 0; i < E; ++i)
+        for (int i = 0; i < edgeCnt; ++i)
         {
-        	edge[i] = new Edge();
+        	edgeArr[i] = new Edge();
         }
 	}
 
@@ -44,8 +45,39 @@ public class KruskalMST
 	 */
 	public void kruskalMST()
 	{
-		// TODO Auto-generated method stub
+		Edge result[] = new Edge[vertexCnt];	// 찾은 최소 비용 신장 트리에 포함되는 간선들의 배열
+		int e = 0;								// 최소 비용 신장 트리에 포함되는 간선들의 배열 인덱스	
+				
+		for (int i = 0; i < vertexCnt; ++i) 
+		{
+			result[i] = new Edge();
+		} 
 		
+		// 단계 1: 모든 간선들을 가중치 순서로 오름차순으로 정렬한다
+        Arrays.sort(edgeArr);
+        
+        // vertexCnt 개의 부분집합들을 위한 배열을 만든다
+        Subset subsets[] = new Subset[vertexCnt];
+        
+        // 각 부분집합을 초기화한다
+        for(int i = 0; i < vertexCnt; ++i)
+        {
+            subsets[i] = new Subset();
+        }
+        
+        // 한 개의 요소를 갖는 V 개의 부분집합들을 생성한다
+        for (int v = 0; v < vertexCnt; ++v) {
+			subsets[v].parent = v;
+			subsets[v].rank = 0;
+		}
+        
+        int i = 0;		// 다음 간선을 선택하기 위해 사용되는 인덱스
+        
+        // 트리에 추가된 간선들의 수가 (vertexCnt - 1)이 될 때까지 반복한다
+        while (e < vertexCnt - 1)
+        {
+        	
+        }
 	}
 	
 	public static void main(String[] args)
@@ -62,9 +94,9 @@ public class KruskalMST
         System.out.println("간선의 두 정점들과 가중치를 차례대로 입력하세요");
         for (int i = 0;  i < E; i++) 
         {
-        	graph.edge[i].src = scan.nextInt();
-        	graph.edge[i].dest = scan.nextInt();
-            graph.edge[i].weight = scan.nextInt();
+        	graph.edgeArr[i].src = scan.nextInt();
+        	graph.edgeArr[i].dest = scan.nextInt();
+            graph.edgeArr[i].weight = scan.nextInt();
         }
         
         graph.kruskalMST();
@@ -80,14 +112,17 @@ public class KruskalMST
 	 * @Version	:
 	 */
 	private class Edge implements Comparable<Edge> {
-		int weight;
-		int src;
-		int dest;
+		int weight;		// 비중 
+		int src;		// 시작노드 
+		int dest;		// 종료 노드 
 		
+		/**
+		 * 간선들을 가중치에 기초하여 정렬하기 위해 사용되는 비교 메소드
+		 */
 		@Override
 		public int compareTo(Edge compareEdge)
 		{
-			return this.weight - compareEdge.weight;
+			return this.weight - compareEdge.weight;	// 비중값을 계산 
 		}
 		
 	}
