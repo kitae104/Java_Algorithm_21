@@ -74,6 +74,8 @@ public class FractionalKnapsack
 		// 단위 무게당 가치가 가장 큰 물건을 찾는다
         int item = getNextItem();
         
+        System.out.println();
+        
         // 배낭에 채울 물건들이 남아 있고 배낭이 채워지지 않은 동안 반복
         while((item != -1) && (totalWeight + weight[item] <= capacityKnapsack))
         {	// 배낭에 물건 item의 전부를 넣는다
