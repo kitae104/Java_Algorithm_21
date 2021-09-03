@@ -43,18 +43,55 @@ public class KnapsackBandB {
 	 * </pre>
 	 * @return
 	 */
-	public String knapsack()
+	public int knapsack()
 	{
 		Node root = new Node();
-		int bound = computeBound(root);		// 한계값 계산 
-		root.setBound(bound);				// 루트노드의 한계값 설정 
+		int bound = computeBound(root);			// 한계값 계산 
+		root.setBound(bound);					// 루트노드의 한계값 설정 
 		
 		// 루트 노드를 queue(우선 순위 대기열)에 집어 넣는다
 		queue.add(root);
 		
+		// queue가 비어 있지 않은 동안 반복한다
+		while(!queue.isEmpty())
+		{
+			Node temp = queue.remove();			// 최대 한계값을 가진 노드 temp를 queue에서 끄집어 낸다
+			
+			if (temp.getBound() > maxValue)		// 노드 temp가 유망하면 확장한다
+			{
+				// 다음 물건을 넣는 경우에는 노드 u를 자식 노드로 만든다
+				Node u = new Node();
+				u.setLevel(temp.getLevel() + 1); // 레벨 증가 
+				u.setWeight(temp.getWeight() + Wt[temp.getLevel()]);	// 무게 설정 - Wt : 무게가 저장된 배열
+				u.setValue(temp.getValue() + Val[temp.getLevel()]);	    // 가치 설정 - Val : 가치가 저장된 배열 
+				
+				if(u.getWeight() <= C && u.getValue() > maxValue) 
+				{	// maxValue를 더 나은 해의 값으로 바꾼다
+					maxValue = u.getValue();					
+				}
+				
+				u.setBound(computeBound(u));	// 자식 노드의 한계값을 계산한다
+				
+				if(u.getBound() > maxValue)
+				{
+					queue.add(u);				// u가 유망하므로 queue에 집어 넣는다
+				}
+				
+				// 다음 물건을 넣지 않는 경우에는 노드 w를 자식 노드로 만든다
+				Node w = new Node();
+				w.setLevel(temp.getLevel() + 1);
+				w.setWeight(temp.getWeight());
+				w.setValue(temp.getValue());
+				
+				w.setBound(computeBound(w));	// 자식 노드의 한계값을 계산한다. 
+				
+				if(w.getBound() > maxValue) {
+					queue.add(w);				// w가 유망하므로 queue에 집어 넣는다
+				}
+			}
+		}
 		
-		
-		return null;
+		return maxValue;
 	}
 	
 	/**
