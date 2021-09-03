@@ -20,6 +20,12 @@ public class JobAssignmentBandB
 		// TODO Auto-generated constructor stub
 	}
 
+	public int findMinCost()
+	{
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	
 	public static void main(String[] args)
 	{
 		// 일 배정 비용을 저장하는 배열
@@ -38,5 +44,4 @@ public class JobAssignmentBandB
 		// 분기 한정을 이용하여 일들의 최소 배정 비용을 계산한 후 출력한다
 		System.out.println("\n최소 배정 비용 = " + jabb.findMinCost());
 	}
-
 }
