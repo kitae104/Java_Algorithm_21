@@ -80,6 +80,7 @@ public class KnapsackBandB {
 		{
 			return node.getValue();		// 더이상 선택할 물건이 없는 경우 
 		}
+
 	}
 
 	public static void main(String[] args) 
@@ -93,6 +94,5 @@ public class KnapsackBandB {
 		// 분기 한정을 이용하여 배낭에 넣을 수 있는 물건들의 최대 가치를 계산한 후 출력한다
 		System.out.println("배낭에 넣을 수 있는 물건들의 최대 가치 = " + kbb.knapsack());
 	}
-
 
 }
