@@ -68,7 +68,7 @@ public class ComputeCumulativeSum
 		// 알고리즘 2		
 		CUME = ccs.computeCumulativeSum2(FREQ);
 		
-		System.out.print("배열 CUME: ");
+		System.out.print("배열 CUME1 : ");
 
 		for (int i = 0; i < CUME.length; i++)
 		{
@@ -79,7 +79,7 @@ public class ComputeCumulativeSum
 		// 알고리즘 1
 		CUME = ccs.computeCumulativeSum1(FREQ);
 		
-		System.out.print("배열 CUME: ");
+		System.out.print("배열 CUME2 : ");
 
 		for (int i = 0; i < CUME.length; i++)
 		{
