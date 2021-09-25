@@ -23,6 +23,12 @@ public class InsertionSort {
 		
 		// 선택 정렬을 사용하여 정렬하기 위해 insertionSort 메소드를 호출한다
 		insertionSort(intArray);
+		
+		System.out.print("정렬 후 배열: ");
+		for (int i = 0; i < intArray.length; i++) {
+			System.out.print(intArray[i] + "  ");
+		}
+		System.out.println();
 	}
 
 	/**
