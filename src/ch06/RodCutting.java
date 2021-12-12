@@ -24,7 +24,7 @@ public class RodCutting
 	 */
 	public int cutRod_DC(int[] priceArray, int i)
 	{	
-		System.out.println(++cnt);
+		//System.out.println(++cnt);
 		if(i == 0) 
 		{
 			return 0;
@@ -51,7 +51,7 @@ public class RodCutting
 	 */
 	public int cutRod_DP(int[] priceArray, int i)
 	{
-		System.out.println(++cnt);
+		//System.out.println(++cnt);
 		int maxSell[] = new int[i + 1];
 		
 		maxSell[0] = 0;

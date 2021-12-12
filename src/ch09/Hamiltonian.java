@@ -22,7 +22,7 @@ public class Hamiltonian
 	
 	public void setStart(int i)
 	{
-		path[0] = 1;				// 시작 정점 설정	
+		path[0] = i;				// 시작 정점 설정	
 	}
 
 	/**

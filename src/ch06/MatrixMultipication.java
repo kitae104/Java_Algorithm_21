@@ -24,7 +24,7 @@ public class MatrixMultipication
 	 */
 	public int matrixMult_DC(int[] arr, int i, int j)
 	{
-		System.out.println(++cnt);
+		//System.out.println(++cnt);
 		if(i == j) 
 		{
 			return 0; 
@@ -53,7 +53,7 @@ public class MatrixMultipication
 	 */
 	public int matrixMult_DP(int[] arr, int n)
 	{
-		System.out.println(++cnt);
+		//System.out.println(++cnt);
 		// 프로그램을 단순화하기 위해 배열 m의 첫 번째 행과 첫 번째 열은 사용하지 않는다.
         int m[][] = new int[n][n];
         

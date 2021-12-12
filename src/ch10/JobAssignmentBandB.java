@@ -22,8 +22,8 @@ public class JobAssignmentBandB
 	/**
 	 * 생성자<br> 
 	 * 객체 변수들의 값들을 주어진 값으로 초기화하면서 JobAssignmentBandB 객체를 생성한다
-	 * @param num
-	 * @param cost
+	 * @param num 사람들 수 
+	 * @param cost 비용 배열 
 	 */
 	public JobAssignmentBandB(int num, int[][] costMatrix)
 	{
